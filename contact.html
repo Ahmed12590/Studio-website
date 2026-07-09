@@ -22,6 +22,10 @@
             --accent: #d8ff64;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Inter, Arial, sans-serif;
             background: var(--bg);
@@ -45,19 +49,22 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 50;
+            z-index: 100;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 22px 32px;
-            background: linear-gradient(to bottom, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0));
+            background: linear-gradient(to bottom, rgba(8, 8, 8, 0.96), rgba(8, 8, 8, 0.65));
+            backdrop-filter: blur(12px);
         }
 
         .logo {
             font-size: 1rem;
             font-weight: 700;
             letter-spacing: -0.03em;
+            position: relative;
+            z-index: 110;
         }
 
         .nav {
@@ -72,30 +79,72 @@
             color: var(--text);
         }
 
-        .language-switcher {
-            width: 70px;
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            cursor: pointer;
+            position: relative;
+            z-index: 110;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text);
+            margin: 5px auto;
+            transition: 0.3s ease;
+        }
+
+        .menu-toggle.active span:first-child {
+            transform: translateY(3.5px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:last-child {
+            transform: translateY(-3.5px) rotate(-45deg);
         }
 
         .contact-hero {
-            min-height: 70vh;
+            min-height: 78vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             padding: 140px 32px 70px;
             position: relative;
             border-bottom: 1px solid var(--line);
+            overflow: hidden;
+
+            /* Hero background image */
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    rgba(8, 8, 8, 0.35),
+                    rgba(8, 8, 8, 0.82)
+                ),
+                url("images/Design3.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .contact-hero::before {
             content: "";
             position: absolute;
-            top: 16%;
-            right: 10%;
-            width: 480px;
-            height: 480px;
-            background: radial-gradient(circle, rgba(216, 255, 100, 0.22), transparent 65%);
-            filter: blur(20px);
+            inset: 0;
+            background:
+                radial-gradient(circle at 75% 24%, rgba(216, 255, 100, 0.24), transparent 34%),
+                linear-gradient(to right, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0.25));
             pointer-events: none;
+        }
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
         }
 
         .eyebrow {
@@ -281,18 +330,91 @@
         }
 
         @media (max-width: 900px) {
-            .nav {
-                display: none;
+            .site-header {
+                padding: 16px 20px;
             }
 
-            .contact-hero,
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                position: fixed;
+                top: 72px;
+                left: 20px;
+                right: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding: 12px;
+                border: 1px solid var(--line);
+                border-radius: 22px;
+                background: rgba(17, 17, 17, 0.98);
+                backdrop-filter: blur(16px);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-14px);
+                transition: 0.3s ease;
+                z-index: 105;
+            }
+
+            .nav.active {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav a {
+                padding: 16px;
+                border-radius: 14px;
+                color: var(--text);
+                font-size: 1rem;
+            }
+
+            .nav a:hover {
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            .contact-hero {
+                min-height: 82vh;
+                padding: 120px 20px 60px;
+                background-position: center;
+            }
+
+            .contact-hero::before {
+                background:
+                    radial-gradient(circle at 70% 24%, rgba(216, 255, 100, 0.18), transparent 35%),
+                    linear-gradient(to bottom, rgba(8, 8, 8, 0.55), rgba(8, 8, 8, 0.92));
+            }
+
+            .contact-hero h1 {
+                font-size: clamp(3.2rem, 16vw, 5.4rem);
+                line-height: 0.92;
+            }
+
+            .contact-hero p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
             .contact-section,
             .faq-section {
                 padding-left: 20px;
                 padding-right: 20px;
             }
 
-            .contact-section,
+            .contact-section {
+                grid-template-columns: 1fr;
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+            .faq-section {
+                padding-bottom: 80px;
+            }
+
             .faq-grid {
                 grid-template-columns: 1fr;
             }
@@ -300,36 +422,74 @@
             .contact-form,
             .contact-info {
                 padding: 26px;
+                border-radius: 26px;
+            }
+
+            .contact-form h2,
+            .contact-info h2 {
+                font-size: clamp(2.2rem, 11vw, 3.5rem);
+            }
+
+            .btn {
+                width: 100%;
             }
 
             .footer {
                 flex-direction: column;
                 gap: 18px;
+                padding: 28px 20px;
+            }
+
+            .footer div {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero h1 {
+                font-size: 3.25rem;
+            }
+
+            .contact-form,
+            .contact-info,
+            .faq-card {
+                padding: 22px;
+            }
+
+            .info-block a,
+            .info-block p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <header class="site-header">
         <a href="index.html" class="logo">©studio</a>
 
-        <nav class="nav">
-            <a href="index.html#work">Work</a>
+        <nav class="nav" id="mobileNav">
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html" class="active">Contact</a>
         </nav>
 
-        <div class="language-switcher"></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <main>
         <section class="contact-hero">
-            <p class="eyebrow">Contact us</p>
-            <h1>Let’s build something worth launching.</h1>
-            <p>
-                Tell us about your idea, website, brand, or product. We will help you shape the next step with clarity.
-            </p>
+            <div class="contact-hero-content">
+                <p class="eyebrow">Contact us</p>
+                <h1>Let’s build something worth launching.</h1>
+                <p>
+                    Tell us about your idea, website, brand, or product. We will help you shape the next step with clarity.
+                </p>
+            </div>
         </section>
 
         <section class="contact-section">
@@ -389,8 +549,8 @@
                 <div class="info-block">
                     <span>Social</span>
                     <p>
-                        <a href="#">Instagram</a> / 
-                        <a href="#">LinkedIn</a> / 
+                        <a href="#">Instagram</a> /
+                        <a href="#">LinkedIn</a> /
                         <a href="#">Dribbble</a>
                     </p>
                 </div>
@@ -433,6 +593,21 @@
     </footer>
 
     <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("active");
+            mobileNav.classList.toggle("active");
+        });
+
+        mobileNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                menuToggle.classList.remove("active");
+                mobileNav.classList.remove("active");
+            });
+        });
+
         const form = document.querySelector(".contact-form");
 
         form.addEventListener("submit", function(event) {

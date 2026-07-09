@@ -22,6 +22,10 @@
             --accent: #d8ff64;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Inter, Arial, sans-serif;
             background: var(--bg);
@@ -34,23 +38,30 @@
             text-decoration: none;
         }
 
+        button {
+            font-family: inherit;
+        }
+
         .site-header {
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 50;
+            z-index: 100;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 22px 32px;
-            background: linear-gradient(to bottom, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0));
+            background: linear-gradient(to bottom, rgba(8, 8, 8, 0.96), rgba(8, 8, 8, 0.65));
+            backdrop-filter: blur(12px);
         }
 
         .logo {
             font-size: 1rem;
             font-weight: 700;
             letter-spacing: -0.03em;
+            position: relative;
+            z-index: 110;
         }
 
         .nav {
@@ -65,30 +76,80 @@
             color: var(--text);
         }
 
-        .language-switcher {
-            width: 70px;
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            cursor: pointer;
+            position: relative;
+            z-index: 110;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text);
+            margin: 5px auto;
+            transition: 0.3s ease;
+        }
+
+        .menu-toggle.active span:first-child {
+            transform: translateY(3.5px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:last-child {
+            transform: translateY(-3.5px) rotate(-45deg);
         }
 
         .page-hero {
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             padding: 140px 32px 80px;
             position: relative;
             border-bottom: 1px solid var(--line);
+            overflow: hidden;
+
+            /* Hero background image */
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    rgba(8, 8, 8, 0.35),
+                    rgba(8, 8, 8, 0.78)
+                ),
+                url("images/Design3.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .page-hero::before {
             content: "";
             position: absolute;
-            top: 18%;
-            right: 12%;
-            width: 480px;
-            height: 480px;
-            background: radial-gradient(circle, rgba(216, 255, 100, 0.22), transparent 65%);
-            filter: blur(22px);
+            inset: 0;
+            background:
+                radial-gradient(circle at 72% 25%, rgba(216, 255, 100, 0.25), transparent 32%),
+                linear-gradient(to right, rgba(8, 8, 8, 0.88), rgba(8, 8, 8, 0.25));
             pointer-events: none;
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 32px 0 32px;
+            height: 1px;
+            background: var(--line);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
         }
 
         .eyebrow {
@@ -280,16 +341,79 @@
         }
 
         @media (max-width: 900px) {
-            .nav {
-                display: none;
+            .site-header {
+                padding: 16px 20px;
             }
 
-            .page-hero,
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                position: fixed;
+                top: 72px;
+                left: 20px;
+                right: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding: 12px;
+                border: 1px solid var(--line);
+                border-radius: 22px;
+                background: rgba(17, 17, 17, 0.98);
+                backdrop-filter: blur(16px);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-14px);
+                transition: 0.3s ease;
+                z-index: 105;
+            }
+
+            .nav.active {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav a {
+                padding: 16px;
+                border-radius: 14px;
+                color: var(--text);
+                font-size: 1rem;
+            }
+
+            .nav a:hover {
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            .page-hero {
+                min-height: 82vh;
+                padding: 120px 20px 60px;
+                background-position: center;
+            }
+
+            .page-hero::before {
+                background:
+                    radial-gradient(circle at 70% 24%, rgba(216, 255, 100, 0.18), transparent 35%),
+                    linear-gradient(to bottom, rgba(8, 8, 8, 0.55), rgba(8, 8, 8, 0.9));
+            }
+
+            .page-hero h1 {
+                font-size: clamp(3.2rem, 16vw, 5.4rem);
+                line-height: 0.92;
+            }
+
+            .page-text {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
             .about-intro,
             .stats-section,
             .values-section {
-                padding-left: 20px;
-                padding-right: 20px;
+                padding: 80px 20px;
             }
 
             .about-intro,
@@ -298,38 +422,83 @@
                 grid-template-columns: 1fr;
             }
 
+            .about-intro h2,
+            .section-heading h2,
+            .team-section h2 {
+                font-size: clamp(2.6rem, 13vw, 4.2rem);
+            }
+
+            .about-intro p {
+                font-size: 1rem;
+            }
+
             .team-section {
                 margin: 20px;
+                padding: 70px 20px;
+                border-radius: 28px;
+            }
+
+            .btn {
+                width: 100%;
             }
 
             .footer {
                 flex-direction: column;
                 gap: 18px;
+                padding: 28px 20px;
+            }
+
+            .footer div {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero h1 {
+                font-size: 3.35rem;
+            }
+
+            .stat-card {
+                padding: 24px;
+            }
+
+            .value-card {
+                padding: 24px;
+            }
+
+            .team-section h2 {
+                font-size: 2.7rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <header class="site-header">
         <a href="index.html" class="logo">©studio</a>
 
-        <nav class="nav">
-            <a href="index.html#work">Work</a>
+        <nav class="nav" id="mobileNav">
+            <a href="index.html">Home</a>
             <a href="about.html" class="active">About</a>
             <a href="contact.html">Contact</a>
         </nav>
 
-        <div class="language-switcher"></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <main>
         <section class="page-hero">
-            <p class="eyebrow">About our studio</p>
-            <h1>We build brands that move fast and feel sharp.</h1>
-            <p class="page-text">
-                We are a creative studio helping founders, startups, and ambitious teams turn ideas into clear digital products, brands, and online experiences.
-            </p>
+            <div class="hero-content">
+                <p class="eyebrow">About our studio</p>
+                <h1>We build brands that move fast and feel sharp.</h1>
+                <p class="page-text">
+                    We are a creative studio helping founders, startups, and ambitious teams turn ideas into clear digital products, brands, and online experiences.
+                </p>
+            </div>
         </section>
 
         <section class="about-intro">
@@ -422,6 +591,23 @@
             <a href="#">Imprint</a>
         </div>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("active");
+            mobileNav.classList.toggle("active");
+        });
+
+        mobileNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                menuToggle.classList.remove("active");
+                mobileNav.classList.remove("active");
+            });
+        });
+    </script>
 
 </body>
 </html>
