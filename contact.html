@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -140,11 +141,9 @@
 
             /* Hero background image */
             background-image:
-                linear-gradient(
-                    to bottom,
+                linear-gradient(to bottom,
                     rgba(8, 8, 8, 0.35),
-                    rgba(8, 8, 8, 0.82)
-                ),
+                    rgba(8, 8, 8, 0.82)),
                 url("images/Contact.jpg");
             background-size: cover;
             background-position: right center;
@@ -337,36 +336,36 @@
             line-height: 1.5;
         }
 
-       .footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 34px 32px;
-    color: var(--muted);
-    border-top: 1px solid var(--line);
-}
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 34px 32px;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+        }
 
-.footer-logo {
-    display: inline-flex;
-    align-items: center;
-}
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+        }
 
-.footer-logo img {
-    width: 150px;
-    max-width: 150px;
-    height: auto;
-    display: block;
-}
+        .footer-logo img {
+            width: 150px;
+            max-width: 150px;
+            height: auto;
+            display: block;
+        }
 
-.footer-links {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-}
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
 
-.footer-links a:hover {
-    color: var(--text);
-}
+        .footer-links a:hover {
+            color: var(--text);
+        }
 
         .footer div {
             display: flex;
@@ -422,7 +421,7 @@
             }
 
             .contact-hero {
-                min-height:50vh;
+                min-height: 50vh;
                 padding: 120px 20px 60px;
                 background-position: center;
             }
@@ -510,7 +509,7 @@
 
 <body>
 
-    
+
     <header class="site-header">
         <a href="index.html" class="logo">
             <img src="images/logo.png" alt="Studio Logo">
@@ -534,7 +533,8 @@
                 <p class="eyebrow">Contact us</p>
                 <h1>Let’s build something worth launching.</h1>
                 <p>
-                    Tell us about your idea, website, brand, or product. We will help you shape the next step with clarity.
+                    Tell us about your idea, website, brand, or product. We will help you shape the next step with
+                    clarity.
                 </p>
             </div>
         </section>
@@ -609,21 +609,24 @@
                 <article class="faq-card">
                     <h3>Do you work with startups?</h3>
                     <p>
-                        Yes, we help startups create brands, landing pages, websites, and launch-ready product experiences.
+                        Yes, we help startups create brands, landing pages, websites, and launch-ready product
+                        experiences.
                     </p>
                 </article>
 
                 <article class="faq-card">
                     <h3>Can you redesign my website?</h3>
                     <p>
-                        Yes, we can improve your existing website with better structure, visuals, content, and user experience.
+                        Yes, we can improve your existing website with better structure, visuals, content, and user
+                        experience.
                     </p>
                 </article>
 
                 <article class="faq-card">
                     <h3>How do we start?</h3>
                     <p>
-                        Send your project details through the form or email us directly. We will suggest the best next step.
+                        Send your project details through the form or email us directly. We will suggest the best next
+                        step.
                     </p>
                 </article>
             </div>
@@ -631,15 +634,15 @@
     </main>
 
     <footer class="footer">
-    <a href="index.html" class="footer-logo">
-        <img src="images/logo.png" alt="Studio Logo">
-    </a>
+        <a href="index.html" class="footer-logo">
+            <img src="images/logo.png" alt="Studio Logo">
+        </a>
 
-    <div class="footer-links">
-        <a href="terms.html">Terms & Conditions</a>
-        <a href="privacy.html">Privacy Policy</a>
-    </div>
-</footer>
+        <div class="footer-links">
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
 
     <script>
         const menuToggle = document.getElementById("menuToggle");
@@ -659,7 +662,7 @@
 
         const form = document.querySelector(".contact-form");
 
-        form.addEventListener("submit", function(event) {
+        form.addEventListener("submit", function (event) {
             event.preventDefault();
             alert("Thank you! Your message has been received.");
             form.reset();
@@ -667,4 +670,5 @@
     </script>
 
 </body>
+
 </html>
