@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Creative Studio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #080808;
+            --card: #111111;
+            --card-soft: #171717;
+            --text: #f5f5f0;
+            --muted: #9b9b91;
+            --line: rgba(255, 255, 255, 0.1);
+            --accent: #d8ff64;
+        }
+
+        body {
+            font-family: Inter, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 32px;
+            background: linear-gradient(to bottom, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0));
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--text);
+        }
+
+        .language-switcher {
+            width: 70px;
+        }
+
+        .contact-hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 140px 32px 70px;
+            position: relative;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .contact-hero::before {
+            content: "";
+            position: absolute;
+            top: 16%;
+            right: 10%;
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(216, 255, 100, 0.22), transparent 65%);
+            filter: blur(20px);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .contact-hero h1 {
+            max-width: 1050px;
+            font-size: clamp(4rem, 11vw, 10rem);
+            line-height: 0.88;
+            letter-spacing: -0.08em;
+            position: relative;
+        }
+
+        .contact-hero p {
+            max-width: 680px;
+            margin-top: 28px;
+            color: var(--muted);
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            line-height: 1.4;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 28px;
+            padding: 100px 32px;
+        }
+
+        .contact-form,
+        .contact-info {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            padding: 34px;
+        }
+
+        .contact-form h2,
+        .contact-info h2 {
+            font-size: clamp(2rem, 4vw, 4rem);
+            line-height: 0.95;
+            letter-spacing: -0.06em;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            border: 1px solid var(--line);
+            outline: none;
+            background: var(--card-soft);
+            color: var(--text);
+            border-radius: 16px;
+            padding: 15px 16px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: rgba(216, 255, 100, 0.7);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 999px;
+            padding: 15px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            background: var(--accent);
+            color: #101010;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(216, 255, 100, 0.2);
+        }
+
+        .info-block {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .info-block:first-of-type {
+            padding-top: 0;
+        }
+
+        .info-block:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-block span {
+            display: block;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .info-block a,
+        .info-block p {
+            color: var(--text);
+            font-size: 1.2rem;
+            line-height: 1.45;
+        }
+
+        .info-block small {
+            display: block;
+            color: var(--muted);
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        .faq-section {
+            padding: 0 32px 100px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .faq-card {
+            background: var(--card-soft);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 28px;
+        }
+
+        .faq-card h3 {
+            font-size: 1.4rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
+        }
+
+        .faq-card p {
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 34px 32px;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+        }
+
+        .footer div {
+            display: flex;
+            gap: 18px;
+        }
+
+        @media (max-width: 900px) {
+            .nav {
+                display: none;
+            }
+
+            .contact-hero,
+            .contact-section,
+            .faq-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .contact-section,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 26px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="logo">©studio</a>
+
+        <nav class="nav">
+            <a href="index.html#work">Work</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+
+        <div class="language-switcher"></div>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <p class="eyebrow">Contact us</p>
+            <h1>Let’s build something worth launching.</h1>
+            <p>
+                Tell us about your idea, website, brand, or product. We will help you shape the next step with clarity.
+            </p>
+        </section>
+
+        <section class="contact-section">
+            <form class="contact-form">
+                <h2>Start a project</h2>
+
+                <div class="form-group">
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" placeholder="hello@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">What do you need?</label>
+                    <select id="service">
+                        <option>Brand Identity</option>
+                        <option>Website Design</option>
+                        <option>Product Design</option>
+                        <option>Commerce Website</option>
+                        <option>Full Project</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Project details</label>
+                    <textarea id="message" placeholder="Tell us about your idea..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send message</button>
+            </form>
+
+            <aside class="contact-info">
+                <h2>Contact details</h2>
+
+                <div class="info-block">
+                    <span>Email</span>
+                    <a href="mailto:hello@example.com">hello@example.com</a>
+                    <small>Send us your idea, brief, or project details.</small>
+                </div>
+
+                <div class="info-block">
+                    <span>Location</span>
+                    <p>Remote studio working worldwide</p>
+                    <small>Available for startups, companies, and founders.</small>
+                </div>
+
+                <div class="info-block">
+                    <span>Response time</span>
+                    <p>Within 24 hours</p>
+                    <small>We usually reply on the next working day.</small>
+                </div>
+
+                <div class="info-block">
+                    <span>Social</span>
+                    <p>
+                        <a href="#">Instagram</a> / 
+                        <a href="#">LinkedIn</a> / 
+                        <a href="#">Dribbble</a>
+                    </p>
+                </div>
+            </aside>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-grid">
+                <article class="faq-card">
+                    <h3>Do you work with startups?</h3>
+                    <p>
+                        Yes, we help startups create brands, landing pages, websites, and launch-ready product experiences.
+                    </p>
+                </article>
+
+                <article class="faq-card">
+                    <h3>Can you redesign my website?</h3>
+                    <p>
+                        Yes, we can improve your existing website with better structure, visuals, content, and user experience.
+                    </p>
+                </article>
+
+                <article class="faq-card">
+                    <h3>How do we start?</h3>
+                    <p>
+                        Send your project details through the form or email us directly. We will suggest the best next step.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>©studio</p>
+        <div>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Imprint</a>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.querySelector(".contact-form");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Thank you! Your message has been received.");
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
