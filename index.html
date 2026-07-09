@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/fav.png" sizes="96x96" />
-    <title>Creative Studio </title>
+    <link rel="icon" type="image/png" href="/images/logo.png" sizes="96x96" />
+    <title>STERLING AND QUILL </title>
 
     <style>
         * {
@@ -44,50 +44,50 @@
             font-family: inherit;
         }
 
-/* bottom to top  */
-.back-to-top {
-    position: fixed;
-    right: 24px;
-    bottom: 80px;
-    z-index: 120;
-    width: 52px;
-    height: 52px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    background: var(--accent);
-    color: #101010;
-    font-size: 1.4rem;
-    font-weight: 800;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(16px);
-    transition: 0.3s ease;
-    box-shadow: 0 16px 40px rgba(216, 255, 100, 0.18);
-}
+        /* bottom to top  */
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 80px;
+            z-index: 120;
+            width: 52px;
+            height: 52px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: var(--accent);
+            color: #101010;
+            font-size: 1.4rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: 0.3s ease;
+            box-shadow: 0 16px 40px rgba(216, 255, 100, 0.18);
+        }
 
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-.back-to-top:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 48px rgba(216, 255, 100, 0.28);
-}
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 48px rgba(216, 255, 100, 0.28);
+        }
 
-@media (max-width: 480px) {
-    .back-to-top {
-        right: 18px;
-        bottom: 18px;
-        width: 46px;
-        height: 46px;
-        font-size: 1.2rem;
-    }
-}
+        @media (max-width: 480px) {
+            .back-to-top {
+                right: 18px;
+                bottom: 18px;
+                width: 46px;
+                height: 46px;
+                font-size: 1.2rem;
+            }
+        }
 
 
 
@@ -208,7 +208,7 @@
         }
 
         .logo img {
-            width: 120px;
+            width: 170px;
             height: auto;
             display: block;
         }
@@ -774,8 +774,9 @@
             .cta-section h2 {
                 font-size: 2.7rem;
             }
+
             .footer {
-            flex-direction: column;
+                flex-direction: column;
             }
         }
     </style>
@@ -786,8 +787,8 @@
     <div class="preloader" id="preloader">
         <div class="loader-content">
             <a href="index.html" class="footer-logo">
-        <img src="images/logo.png" alt="Studio Logo">
-    </a>
+                <img src="images/logo.png" alt="Studio Logo">
+            </a>
 
             <div class="loader-ring">
                 <span></span>
@@ -1019,8 +1020,8 @@
         </div>
     </footer>
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    ↑
-</button>
+        ↑
+    </button>
 
     <script>
         const menuToggle = document.getElementById("menuToggle");
@@ -1098,20 +1099,20 @@
 
         const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-        backToTop.classList.add("show");
-    } else {
-        backToTop.classList.remove("show");
-    }
-});
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        });
 
-backToTop.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
     </script>
 </body>
 
