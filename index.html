@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/png" href="/images/fav.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/images/fav.png" sizes="96x96" />
     <title>Creative Studio </title>
 
     <style>
@@ -44,95 +45,95 @@
         }
 
 
-/* preloader css */
-.preloader {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background:
-        radial-gradient(circle at 50% 45%, rgba(216, 255, 100, 0.16), transparent 32%),
-        #080808;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.7s ease, visibility 0.7s ease;
-}
+        /* preloader css */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background:
+                radial-gradient(circle at 50% 45%, rgba(216, 255, 100, 0.16), transparent 32%),
+                #080808;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
 
-.preloader.hide {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
+        .preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
 
-.loader-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
-    text-align: center;
-}
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 22px;
+            text-align: center;
+        }
 
-.loader-logo {
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 800;
-    letter-spacing: -0.08em;
-    color: var(--text);
-    animation: loaderPulse 1.4s ease-in-out infinite alternate;
-}
+        .loader-logo {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -0.08em;
+            color: var(--text);
+            animation: loaderPulse 1.4s ease-in-out infinite alternate;
+        }
 
-.loader-ring {
-    width: 74px;
-    height: 74px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    position: relative;
-    display: grid;
-    place-items: center;
-}
+        .loader-ring {
+            width: 74px;
+            height: 74px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
 
-.loader-ring::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    border-top-color: var(--accent);
-    border-right-color: rgba(216, 255, 100, 0.45);
-    animation: loaderSpin 1s linear infinite;
-}
+        .loader-ring::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--accent);
+            border-right-color: rgba(216, 255, 100, 0.45);
+            animation: loaderSpin 1s linear infinite;
+        }
 
-.loader-ring span {
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(216, 255, 100, 0.65);
-}
+        .loader-ring span {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(216, 255, 100, 0.65);
+        }
 
-.loader-content p {
-    color: var(--muted);
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
+        .loader-content p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
 
-@keyframes loaderSpin {
-    to {
-        transform: rotate(360deg);
-    }
-}
+        @keyframes loaderSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-@keyframes loaderPulse {
-    from {
-        opacity: 0.65;
-        transform: scale(0.98);
-    }
+        @keyframes loaderPulse {
+            from {
+                opacity: 0.65;
+                transform: scale(0.98);
+            }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
 
 
@@ -212,11 +213,9 @@
 
             /* Hero background image */
             background-image:
-                linear-gradient(
-                    to bottom,
+                linear-gradient(to bottom,
                     rgba(8, 8, 8, 0.25),
-                    rgba(8, 8, 8, 0.9)
-                ),
+                    rgba(8, 8, 8, 0.9)),
                 url("images/homebanner.jpg");
             background-size: cover;
             background-position: center;
@@ -251,7 +250,7 @@
         .hero h1 {
             max-width: 1100px;
             font-size: clamp(4rem, 12vw, 11rem);
-            line-height:1.0;
+            line-height: 1.0;
             letter-spacing: -0.08em;
             position: relative;
             font-size: 120px;
@@ -611,48 +610,48 @@
             .section-heading h2,
             .cta-section h2 {
                 font-size: 46px;
-        line-height: 1.0;
-    }
+                line-height: 1.0;
             }
+        }
 
-            .intro p {
-                font-size: 1rem;
-            }
+        .intro p {
+            font-size: 1rem;
+        }
 
-            .filters {
-                overflow-x: auto;
-                flex-wrap: nowrap;
-                padding-bottom: 8px;
-            }
+        .filters {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 8px;
+        }
 
-            .filter-btn {
-                white-space: nowrap;
-            }
+        .filter-btn {
+            white-space: nowrap;
+        }
 
-            .case-image {
-                height: 250px;
-            }
+        .case-image {
+            height: 250px;
+        }
 
-            .case-content h3 {
-                font-size: 1.6rem;
-            }
+        .case-content h3 {
+            font-size: 1.6rem;
+        }
 
-            .cta-section {
-                margin: 20px;
-                padding: 70px 20px;
-                border-radius: 28px;
-            }
+        .cta-section {
+            margin: 20px;
+            padding: 70px 20px;
+            border-radius: 28px;
+        }
 
-            .footer {
-                flex-direction: column;
-                gap: 18px;
-                padding: 28px 20px;
-            }
+        .footer {
+            /* flex-direction: column; */
+            gap: 18px;
+            padding: 28px 20px;
+        }
 
-            .footer div {
-                flex-wrap: wrap;
-            }
-        
+        .footer div {
+            flex-wrap: wrap;
+        }
+
 
         @media (max-width: 480px) {
             .hero h1 {
@@ -685,17 +684,17 @@
 
 <body>
 
-<div class="preloader" id="preloader">
-    <div class="loader-content">
-        <div class="loader-logo">©studio</div>
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">©studio</div>
 
-        <div class="loader-ring">
-            <span></span>
+            <div class="loader-ring">
+                <span></span>
+            </div>
+
+            <p>Loading creative experience</p>
         </div>
-
-        <p>Loading creative experience</p>
     </div>
-</div>
 
 
 
@@ -955,14 +954,15 @@
 
 
 
-const preloader = document.getElementById("preloader");
+        const preloader = document.getElementById("preloader");
 
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        preloader.classList.add("hide");
-    }, 900);
-});
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                preloader.classList.add("hide");
+            }, 900);
+        });
 
     </script>
 </body>
+
 </html>
