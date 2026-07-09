@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms & Conditions - Creative Studio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #080808;
+            --card: #111111;
+            --card-soft: #171717;
+            --text: #f5f5f0;
+            --muted: #9b9b91;
+            --line: rgba(255, 255, 255, 0.1);
+            --accent: #d8ff64;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 32px;
+            background: linear-gradient(to bottom, rgba(8, 8, 8, 0.96), rgba(8, 8, 8, 0.65));
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            position: relative;
+            z-index: 110;
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--text);
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            cursor: pointer;
+            position: relative;
+            z-index: 110;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text);
+            margin: 5px auto;
+            transition: 0.3s ease;
+        }
+
+        .menu-toggle.active span:first-child {
+            transform: translateY(3.5px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:last-child {
+            transform: translateY(-3.5px) rotate(-45deg);
+        }
+
+        .legal-hero {
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 140px 32px 70px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
+            background:
+                radial-gradient(circle at 70% 20%, rgba(216, 255, 100, 0.2), transparent 34%),
+                linear-gradient(to bottom, rgba(8, 8, 8, 0.2), rgba(8, 8, 8, 0.95)),
+                var(--bg);
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .legal-hero h1 {
+            max-width: 1000px;
+            font-size: clamp(3.5rem, 10vw, 9rem);
+            line-height: 0.9;
+            letter-spacing: -0.08em;
+        }
+
+        .legal-hero p {
+            max-width: 650px;
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: clamp(1rem, 2vw, 1.35rem);
+            line-height: 1.45;
+        }
+
+        .legal-section {
+            padding: 90px 32px;
+        }
+
+        .legal-container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 32px;
+            padding: 42px;
+        }
+
+        .legal-block {
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .legal-block:first-child {
+            padding-top: 0;
+        }
+
+        .legal-block:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .legal-block h2 {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            letter-spacing: -0.05em;
+            margin-bottom: 14px;
+        }
+
+        .legal-block p,
+        .legal-block li {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .legal-block ul {
+            padding-left: 20px;
+            margin-top: 12px;
+        }
+
+        .legal-block li {
+            margin-bottom: 8px;
+        }
+
+        .legal-note {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 26px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 34px 32px;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+        }
+
+        .footer div {
+            display: flex;
+            gap: 18px;
+        }
+
+        @media (max-width: 900px) {
+            .site-header {
+                padding: 16px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                position: fixed;
+                top: 72px;
+                left: 20px;
+                right: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding: 12px;
+                border: 1px solid var(--line);
+                border-radius: 22px;
+                background: rgba(17, 17, 17, 0.98);
+                backdrop-filter: blur(16px);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(-14px);
+                transition: 0.3s ease;
+                z-index: 105;
+            }
+
+            .nav.active {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav a {
+                padding: 16px;
+                border-radius: 14px;
+                color: var(--text);
+                font-size: 1rem;
+            }
+
+            .nav a:hover {
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            .legal-hero {
+                min-height: 48vh;
+                padding: 120px 20px 55px;
+            }
+
+            .legal-hero h1 {
+                font-size: clamp(3rem, 15vw, 5rem);
+                line-height: 0.95;
+            }
+
+            .legal-section {
+                padding: 70px 20px;
+            }
+
+            .legal-container {
+                padding: 28px;
+                border-radius: 26px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 18px;
+                padding: 28px 20px;
+            }
+
+            .footer div {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .legal-hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .legal-container {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">©studio</a>
+
+        <nav class="nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <section class="legal-hero">
+            <p class="eyebrow">Legal</p>
+            <h1>Terms & Conditions</h1>
+            <p>
+                Please read these terms carefully before using our website or working with our studio.
+            </p>
+        </section>
+
+        <section class="legal-section">
+            <div class="legal-container">
+                <p class="legal-note">
+                    Last updated: 2026. This is a general template. Please review it with a legal professional before publishing.
+                </p>
+
+                <div class="legal-block">
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>
+                        By accessing this website or using our services, you agree to follow these Terms & Conditions. If you do not agree with any part of these terms, you should not use this website.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>2. Our Services</h2>
+                    <p>
+                        We provide creative, branding, web design, product design, and digital development services. The exact scope, timeline, pricing, and deliverables for each project will be confirmed in a separate agreement, proposal, or written communication.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>3. Project Content</h2>
+                    <p>
+                        You are responsible for providing accurate content, images, brand materials, and project information. We are not responsible for delays caused by missing, incorrect, or late project materials.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>4. Payments</h2>
+                    <p>
+                        Payment terms will be agreed before the project begins. Work may be paused if payments are delayed or not completed according to the agreed schedule.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>5. Intellectual Property</h2>
+                    <p>
+                        After full payment is received, final approved project deliverables may be transferred to you, unless stated otherwise. We may retain the right to showcase completed work in our portfolio, website, or marketing materials.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>6. Revisions</h2>
+                    <p>
+                        Each project may include a specific number of revisions. Additional revisions, changes in direction, or new feature requests may require extra time and cost.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>7. Website Use</h2>
+                    <p>
+                        You agree not to misuse this website, attempt unauthorized access, copy content without permission, or use the website in a way that may harm its functionality or reputation.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>8. Limitation of Liability</h2>
+                    <p>
+                        We aim to provide high-quality work, but we are not responsible for indirect losses, business interruption, lost profits, or damages caused by third-party platforms, hosting providers, plugins, tools, or external services.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>9. Changes to Terms</h2>
+                    <p>
+                        We may update these Terms & Conditions at any time. Updated terms will be posted on this page with a revised date.
+                    </p>
+                </div>
+
+                <div class="legal-block">
+                    <h2>10. Contact</h2>
+                    <p>
+                        For questions about these terms, contact us at hello@example.com.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>©studio</p>
+        <div>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="#">Imprint</a>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("active");
+            mobileNav.classList.toggle("active");
+        });
+
+        mobileNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                menuToggle.classList.remove("active");
+                mobileNav.classList.remove("active");
+            });
+        });
+    </script>
+</body>
+</html>
