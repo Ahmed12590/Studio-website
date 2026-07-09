@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -109,13 +110,15 @@
             min-height: 55vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: center;
             padding: 140px 32px 70px;
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid var(--line);
+            text-align: center;
             background:
-                radial-gradient(circle at 70% 20%, rgba(216, 255, 100, 0.2), transparent 34%),
+                radial-gradient(circle at 50% 30%, rgba(216, 255, 100, 0.2), transparent 34%),
                 linear-gradient(to bottom, rgba(8, 8, 8, 0.2), rgba(8, 8, 8, 0.95)),
                 var(--bg);
         }
@@ -131,9 +134,10 @@
 
         .legal-hero h1 {
             max-width: 1000px;
-            font-size: clamp(3.5rem, 10vw, 9rem);
+            /* font-size: clamp(3.5rem, 10vw, 9rem); */
             line-height: 0.9;
             letter-spacing: -0.08em;
+            font-size: 120px;
         }
 
         .legal-hero p {
@@ -321,7 +325,7 @@
 
     <main>
         <section class="legal-hero">
-            <p class="eyebrow">Legal</p>
+            <!-- <p class="eyebrow">Legal</p> -->
             <h1>Terms & Conditions</h1>
             <p>
                 Please read these terms carefully before using our website or working with our studio.
@@ -330,77 +334,91 @@
 
         <section class="legal-section">
             <div class="legal-container">
-                <p class="legal-note">
-                    Last updated: 2026. This is a general template. Please review it with a legal professional before publishing.
-                </p>
+                <!-- <p class="legal-note">
+                    Last updated: 2026. This is a general template. Please review it with a legal professional before
+                    publishing.
+                </p> -->
 
                 <div class="legal-block">
                     <h2>1. Acceptance of Terms</h2>
                     <p>
-                        By accessing this website or using our services, you agree to follow these Terms & Conditions. If you do not agree with any part of these terms, you should not use this website.
+                        By accessing this website or using our services, you agree to follow these Terms & Conditions.
+                        If you do not agree with any part of these terms, you should not use this website.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>2. Our Services</h2>
                     <p>
-                        We provide creative, branding, web design, product design, and digital development services. The exact scope, timeline, pricing, and deliverables for each project will be confirmed in a separate agreement, proposal, or written communication.
+                        We provide creative, branding, web design, product design, and digital development services. The
+                        exact scope, timeline, pricing, and deliverables for each project will be confirmed in a
+                        separate agreement, proposal, or written communication.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>3. Project Content</h2>
                     <p>
-                        You are responsible for providing accurate content, images, brand materials, and project information. We are not responsible for delays caused by missing, incorrect, or late project materials.
+                        You are responsible for providing accurate content, images, brand materials, and project
+                        information. We are not responsible for delays caused by missing, incorrect, or late project
+                        materials.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>4. Payments</h2>
                     <p>
-                        Payment terms will be agreed before the project begins. Work may be paused if payments are delayed or not completed according to the agreed schedule.
+                        Payment terms will be agreed before the project begins. Work may be paused if payments are
+                        delayed or not completed according to the agreed schedule.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>5. Intellectual Property</h2>
                     <p>
-                        After full payment is received, final approved project deliverables may be transferred to you, unless stated otherwise. We may retain the right to showcase completed work in our portfolio, website, or marketing materials.
+                        After full payment is received, final approved project deliverables may be transferred to you,
+                        unless stated otherwise. We may retain the right to showcase completed work in our portfolio,
+                        website, or marketing materials.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>6. Revisions</h2>
                     <p>
-                        Each project may include a specific number of revisions. Additional revisions, changes in direction, or new feature requests may require extra time and cost.
+                        Each project may include a specific number of revisions. Additional revisions, changes in
+                        direction, or new feature requests may require extra time and cost.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>7. Website Use</h2>
                     <p>
-                        You agree not to misuse this website, attempt unauthorized access, copy content without permission, or use the website in a way that may harm its functionality or reputation.
+                        You agree not to misuse this website, attempt unauthorized access, copy content without
+                        permission, or use the website in a way that may harm its functionality or reputation.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>8. Limitation of Liability</h2>
                     <p>
-                        We aim to provide high-quality work, but we are not responsible for indirect losses, business interruption, lost profits, or damages caused by third-party platforms, hosting providers, plugins, tools, or external services.
+                        We aim to provide high-quality work, but we are not responsible for indirect losses, business
+                        interruption, lost profits, or damages caused by third-party platforms, hosting providers,
+                        plugins, tools, or external services.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>9. Changes to Terms</h2>
                     <p>
-                        We may update these Terms & Conditions at any time. Updated terms will be posted on this page with a revised date.
+                        We may update these Terms & Conditions at any time. Updated terms will be posted on this page
+                        with a revised date.
                     </p>
                 </div>
 
                 <div class="legal-block">
                     <h2>10. Contact</h2>
                     <p>
-                        For questions about these terms, contact us at hello@example.com.
+                        For questions about these terms, contact us at info@sterlingandquill.com.
                     </p>
                 </div>
             </div>
@@ -410,9 +428,8 @@
     <footer class="footer">
         <p>©studio</p>
         <div>
-            <a href="terms.html">Terms</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="#">Imprint</a>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
         </div>
     </footer>
 
@@ -433,4 +450,5 @@
         });
     </script>
 </body>
+
 </html>
